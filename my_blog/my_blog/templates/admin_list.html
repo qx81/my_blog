@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}后台管理 - 我的博客{% endblock %}
+
+{% block content %}
+<h2>文章管理</h2>
+<a href="{{ url_for('admin_new') }}" class="btn btn-success mb-3">新增文章</a>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>标题</th>
+            <th>发布日期</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.created_at }}</td>
+            <td>
+                <a href="{{ url_for('admin_edit', post_id=post.id) }}" class="btn btn-primary btn-sm">编辑</a>
+                <form action="{{ url_for('admin_delete', post_id=post.id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('确定删除吗？');">
+                    <button type="submit" class="btn btn-danger btn-sm">删除</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
