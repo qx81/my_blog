@@ -3,8 +3,8 @@ from email.mime.text import MIMEText
 
 SMTP_SERVER = "smtp.qq.com"
 SMTP_PORT = 587
-SMTP_USER = "1152805923@qq.com"
-SMTP_PASS = "tlsmqyyulccnifde"
+SMTP_USER = "your"
+SMTP_PASS = "your"
 
 def send_email_code(to_email, code):
     msg = MIMEText(f"您的验证码是：{code}，有效期5分钟")
