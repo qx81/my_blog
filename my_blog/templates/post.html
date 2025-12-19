@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - 我的博客{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2 class="card-title">{{ post.title }}</h2>
+        <p class="text-muted"><small>{{ post.created_at }}</small></p>
+        <hr>
+        <p class="card-text">{{ post.content }}</p>
+        <a href="/" class="btn btn-secondary mt-3">返回首页</a>
+    </div>
+</div>
+{% endblock %}
